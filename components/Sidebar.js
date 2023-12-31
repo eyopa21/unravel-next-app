@@ -1,16 +1,25 @@
+"use client"
+
 import Link from "next/link"
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
+    const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+    const [showSidebar, setToggleSideBar] = useState(false)
+   
+    const toggleSidebar = () => {
+        setToggleSideBar(!showSidebar)
+    }
 
-const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 return ( <div>
     <div
         className="w-0 lg:w-24 transition-all duration-[.5s] flex fixed top-0 left-0 z-20 flex-col flex-shrink-0 pt-16 h-full  lg:flex shadow-t-xl">
         <div id="inner-sidenav-transition"
-            className="lg:w-64  shadow-violet-500 shadow-lg lg:shadow-none mt-[.4px] lg: mt - 0 flex transition-all duration-[.5s] relative flex-col flex-1 pt-0 min-h-0 bg-gray-100 lg:bg-gray-50 dark:bg-gray-900 border-b-32">
+            className={`${showSidebar?'lg:w-64':'lg:w-24'}  shadow-violet-500 shadow-lg lg:shadow-none mt-[.4px] lg: mt - 0 flex transition-all duration-[.5s] relative flex-col flex-1 pt-0 min-h-0 bg-gray-100 lg:bg-gray-50 dark:bg-gray-900 border-b-32`}>
 
             <div className="flex overflow-y-auto flex-col flex-1 pt-8 pb-4">
                 <div className="flex-1 px-3 bg-gray-50 dark:bg-gray-900" id="sidebar-items">
+                    <h1 onClick={ toggleSidebar} className="text-red-500 text-4xl">hh</h1>
                     <ul className="pb-2 pt-1">
                         {items.map((item, index) => (
                         <li key={index}>

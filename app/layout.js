@@ -7,8 +7,6 @@ import Sidebar from '@/components/Sidebar'
 import Provider from "@/components/DarkMode/Provider";
 import { usePathname, useRouter } from 'next/navigation'
 
-const inter = Inter({ subsets: ['latin'] })
-
 
 export default function RootLayout({ children }) {
  
@@ -18,9 +16,9 @@ export default function RootLayout({ children }) {
   const currentRoute = usePathname()
 
   return (
-    <html lang="en">
+    <html lang="en" className=''>
       
-      <body className={inter.className}>
+      <body >
         <Provider>
         {currentRoute!=='/auth/login' &&  <Nav />}
        
